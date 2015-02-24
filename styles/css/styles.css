@@ -1066,6 +1066,7 @@ table.row.app-footer-content {
 
 .app-content img {
 	margin-bottom: 2em;
+	display: block;
 }
 
 table[class="body"] img.app-header-logo {
