@@ -980,22 +980,40 @@ td.border-top {
 
 body,
 table.body,
+p,
+td,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-td {
+h6 {
 	color: #333;
 	font-family: "Circe", "Helvetica", "Arial", sans-serif;
-	font-weight: normal;
-	font-size: 14px;
 	padding: 0;
 	margin: 0;
 	text-align: left;
-	line-height: 1.3;
+	line-height: 1.5;
+}
+
+body,
+table.body,
+p,
+td {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	margin-top: 0.5em;
+	margin-bottom: 0.75em;
+	line-height: 1.2;
 }
 
 a {
@@ -1020,15 +1038,15 @@ a:hover {
 
 table.row.app-header {
 	border-bottom: 1px solid #eee;
-	margin-bottom: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	margin-bottom: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 table.row.app-footer {
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-bottom: 20px;
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 40px;
 	border-top: 1px solid #eee;
 }
 
@@ -1042,7 +1060,12 @@ table.row.app-footer-content {
 
 .app-content {
 	font-size: 18px;
-	line-height: 1.3;
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+.app-content img {
+	margin-bottom: 2em;
 }
 
 table[class="body"] img.app-header-logo {
