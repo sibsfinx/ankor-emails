@@ -1,0 +1,19 @@
+{
+  "name": "ankor-emails",
+  "version": "0.0.0",
+  "authors": [
+    "Alexander Mescheryakov <sibsfinx@ya.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ink": "git@github.com:faustgertz/sassy-ink.git"
+  }
+}
