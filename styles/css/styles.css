@@ -932,25 +932,25 @@ td.border-top {
 
 @font-face {
 	font-family: "Circe";
-	src: url("http://ankor-center.ru/email/circe-thin.eot");
-	src: url("http://ankor-center.ru/email/circe-thin.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-thin.woff") format("woff"), url("http://ankor-center.ru/email/circe-thin.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-thin.svg#CirceLight") format("svg");
-	font-weight: 100;
+	src: url("http://ankor-center.ru/email/circe-regular-m.eot");
+	src: url("http://ankor-center.ru/email/circe-regular-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-regular-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-regular-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-regular-m.svg#Circe") format("svg");
+	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Circe";
-	src: url("http://ankor-center.ru/email/circe-extralight-m.eot");
-	src: url("http://ankor-center.ru/email/circe-extralight-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-extralight-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-extralight-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-extralight-m.svg#CirceLight") format("svg");
-	font-weight: 200;
+	src: url("http://ankor-center.ru/email/circe-bold-m.eot");
+	src: url("http://ankor-center.ru/email/circe-bold-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-bold-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-bold-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-bold-m.svg#CirceBold") format("svg");
+	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Circe";
-	src: url("http://ankor-center.ru/email/circe-light-m.eot");
-	src: url("http://ankor-center.ru/email/circe-light-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-light-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-light-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-light-m.svg#CirceLight") format("svg");
-	font-weight: 300;
+	src: url("http://ankor-center.ru/email/circe-extrabold-m.eot");
+	src: url("http://ankor-center.ru/email/circe-extrabold-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-extrabold-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-extrabold-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-extrabold-m.svg#CirceExtraBold") format("svg");
+	font-weight: 900;
 	font-style: normal;
 }
 
@@ -958,7 +958,7 @@ td.border-top {
 	font-family: "Circe";
 	src: url("http://ankor-center.ru/email/circe-regular-m.eot");
 	src: url("http://ankor-center.ru/email/circe-regular-m.eot?#iefix") format("embedded-opentype"), url("http://ankor-center.ru/email/circe-regular-m.woff") format("woff"), url("http://ankor-center.ru/email/circe-regular-m.ttf") format("truetype"), url("http://ankor-center.ru/email/circe-regular-m.svg#Circe") format("svg");
-	font-weight: 400;
+	font-weight: normal;
 	font-style: normal;
 }
 
@@ -989,7 +989,7 @@ h4,
 h5,
 h6 {
 	color: #333;
-	font-family: "Circe", "Helvetica", "Arial", sans-serif;
+	font-family: "Circe", "Helvetica", "Arial", sans-serif !important;
 	padding: 0;
 	margin: 0;
 	text-align: left;
@@ -1001,7 +1001,7 @@ table.body,
 p,
 td {
 	font-size: 14px;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 h1,
@@ -1060,18 +1060,19 @@ table.row.app-footer-content {
 
 .app-content {
 	font-size: 18px;
-	font-weight: 300;
 	line-height: 1.5;
 }
 
 .app-content img {
 	margin-bottom: 2em;
 	display: block;
+	max-width: 100%;
 }
 
 table[class="body"] img.app-header-logo {
 	width: 124px !important;
 	height: 39px !important;
+	max-width: auto;
 }
 
 @media screen and (min-width: 800px) {
