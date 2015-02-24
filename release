@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+#
+default_semver=inc
+SEMVER=${SEMVER:-$default_semver}
+
+echo "Следующая версия релиза:"
+
+semver inc $SEMVER
+semver meta `git rev-parse HEAD`
+semver
+git semtag
+git add .
+git commit -m `semver`
+git push --tags
+
+# sudo pip instal gitchangelog
+# git log > CHANGELOG.md
