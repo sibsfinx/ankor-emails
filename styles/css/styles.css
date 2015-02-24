@@ -1040,6 +1040,11 @@ table.row.app-footer-content {
 	margin-bottom: 20px;
 }
 
+.app-content {
+	font-size: 18px;
+	line-height: 1.3;
+}
+
 table[class="body"] img.app-header-logo {
 	width: 124px !important;
 	height: 39px !important;
