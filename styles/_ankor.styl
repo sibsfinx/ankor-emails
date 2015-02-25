@@ -31,7 +31,8 @@ h1, h2, h3, h4, h5, h6
   line-height: headings-line-height
 
 a
-  color link-color !important
+  &, &:focus, &:visited, &:active
+    color link-color !important
   &:hover
     color link-color-hover !important
 
@@ -77,7 +78,9 @@ table[class="body"]
   img.app-header-logo
     width header-logo-width !important
     height header-logo-height !important
-    max-width auto
+    max-width 100% !important
 
 
-
+.socials-list-item
+  display: inline-block
+  padding-right: 1em

@@ -1016,7 +1016,10 @@ h6 {
 	line-height: 1.2;
 }
 
-a {
+a,
+a:focus,
+a:visited,
+a:active {
 	color: #00a0e3 !important;
 }
 
@@ -1072,7 +1075,12 @@ table.row.app-footer-content {
 table[class="body"] img.app-header-logo {
 	width: 124px !important;
 	height: 39px !important;
-	max-width: auto;
+	max-width: 100% !important;
+}
+
+.socials-list-item {
+	display: inline-block;
+	padding-right: 1em;
 }
 
 @media screen and (min-width: 800px) {
