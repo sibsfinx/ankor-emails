@@ -10,10 +10,11 @@ header-logo-width = 124px
 header-logo-height = 39px
 
 @import '_fonts'
+@import url(http://ankor-center.ru/email/_fonts.css)
 
 body, table.body, p, td, h1, h2, h3, h4, h5, h6
   color text-color
-  font-family "Circe", "Helvetica", "Arial", sans-serif
+  font-family "Circe", "Helvetica", "Arial", sans-serif !important
   padding 0
   margin 0
   text-align left
@@ -21,7 +22,7 @@ body, table.body, p, td, h1, h2, h3, h4, h5, h6
 
 body, table.body, p, td
   font-size base-font-size
-  font-weight 300
+  font-weight 400
 
 h1, h2, h3, h4, h5, h6
   font-weight: 700
@@ -30,7 +31,8 @@ h1, h2, h3, h4, h5, h6
   line-height: headings-line-height
 
 a
-  color link-color !important
+  &, &:focus, &:visited, &:active
+    color link-color !important
   &:hover
     color link-color-hover !important
 
@@ -66,16 +68,19 @@ table.row.app-footer-content
 
 .app-content
   font-size content-font-size
-  font-weight 300
   line-height base-line-height
   img
     margin-bottom 2em
-    display: block
+    display block
+    max-width 100%
 
 table[class="body"]
   img.app-header-logo
     width header-logo-width !important
     height header-logo-height !important
+    max-width 100% !important
 
 
-
+.socials-list-item
+  display: inline-block
+  padding-right: 1em

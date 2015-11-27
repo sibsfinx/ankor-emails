@@ -29,7 +29,7 @@ paths =
   #slimTemplates: "./slim/templates/*.slim"
   html: "./*.html"
   stylus: "styles/**/*.styl"
-  stylusIndex: "./styles/styles.styl"
+  stylusIndex: ["./styles/styles.styl", "./styles/_fonts.styl"]
   #sass: 'styles/**/*.sass'
   #sassIndex: "./styles/styles.sass"
   css: "styles/css/"
