@@ -7,7 +7,7 @@ A starting boilerplate for building responsive emails, using NodeJS and various 
 - Install [nodeJS](http://nodejs.org/download/)
 - Clone this repository: `git clone git@github.com:WINTR/email-workflow.git`
 - Run `npm install`
-- Configure email settings and recipients in `mailer.coffee`
+- Configure email settings and recipients in `mailer.coffee` from `mailer.coffee.example`
 - Run `gulp` to start all default gulp tasks
 
 
