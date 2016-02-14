@@ -6,43 +6,37 @@ send = require("./mailer")
 addMediaQueries = require("./addMediaQueries")
 runSequence  = require 'run-sequence'
 args  = require('yargs').argv
-#sass = require('gulp-sass')
-#slim = require("gulp-slim")
-sourcemaps = require('gulp-sourcemaps')
+#sourcemaps = require('gulp-sourcemaps')
 browserSync = require('browser-sync')
 reload = browserSync.reload
+parallelize = require('concurrent-transform')
+
 
 # --------------------------------------------------------
 # Path Configurations
 # --------------------------------------------------------
 options = {}
 
-options.sass =
-  errLogToConsole: true
-  sourceComments: 'normal'
-  outputStyle: 'compact'
+options =
+  parallelize:
+    threads: 10
 
 paths =
   jade: "./jade/**/**/*.jade"
   jadeTemplates: "./jade/templates/*.jade"
-  #slim: "./slim/**/**/*.slim"
-  #slimTemplates: "./slim/templates/*.slim"
   html: "./*.html"
   stylus: "styles/**/*.styl"
   stylusIndex: ["./styles/styles.styl", "./styles/_fonts.styl"]
-  #sass: 'styles/**/*.sass'
-  #sassIndex: "./styles/styles.sass"
   css: "styles/css/"
   images: "images/*"
   build: "./build"
-
+  dist: "./dist"
 
 # Direct errors to notification center
 handleError = ->
    $.plumber errorHandler: $.notify.onError ->
       $.util.beep()
       "Error: <%= error.message %>"
-
 
 #--------------------------------------------------------
 # BUILD Tasks
@@ -77,20 +71,31 @@ gulp.task "stylus", ->
     .pipe $.stylus()
     .pipe $.autoprefixer()
     .pipe $.combineMediaQueries()
-    .pipe gulp.dest paths.css 
+    .pipe gulp.dest paths.css
     .pipe $.livereload()
     .pipe reload({stream: true})
 
-gulp.task "sass", ->
-  gulp.src paths.sassIndex
-    .pipe handleError()
-    .pipe $.sass options.sass
+gulp.task "stylus:build", ->
+  gulp.src paths.stylusIndex
+    .pipe $.stylus()
     .pipe $.autoprefixer()
     .pipe $.combineMediaQueries()
-    .pipe gulp.dest path.cs
-    .pipe $.livereload()
-  return
+    .pipe gulp.dest paths.css
 
+
+gulp.task 'sourcemaps-inline', ->
+  gulp.src paths.stylusIndex
+    .pipe $.sourcemaps.init()
+    .pipe $.stylus()
+    .pipe $.sourcemaps.write()
+    .pipe gulp.dest paths.css
+
+gulp.task 'sourcemaps-external', ->
+  gulp.src paths.stylusIndex
+    .pipe $.sourcemaps.init()
+    .pipe $.stylus()
+    .pipe $.sourcemaps.write('.')
+    .pipe gulp.dest paths.css
 
 #--------------------------------------------------------
 # Compile Jade
@@ -98,25 +103,32 @@ gulp.task "sass", ->
 gulp.task "jade", ->
   gulp.src paths.jadeTemplates
     .pipe $.jade(pretty:true)
+    .pipe handleError()
     .pipe gulp.dest './'
     .pipe $.livereload()
     .pipe reload({stream: true})
 
-gulp.task 'slim', ->
-  gulp.src paths.slimTemplates
-    .pipe handleError()
-    .pipe slim pretty: true
+gulp.task "jade:build", ->
+  gulp.src paths.jadeTemplates
+    .pipe $.jade(pretty:true)
     .pipe gulp.dest './'
-    .pipe $.connect.reload()
+
+gulp.task "clean:dist", ->
+  gulp.src paths.dist
+    .pipe $.clean()
+
+gulp.task "html2hbs", ["clean:dist"], ->
+  gulp.src "#{paths.build}/*.html"
+    .pipe $.rename
+      extname: ".hbs"
+    .pipe gulp.dest paths.dist
 
 # --------------------------------------------------------
 # Connect to server
 # --------------------------------------------------------
 gulp.task "connect", ->
-  $.connect.server 
+  $.connect.server
     root: __dirname
-
-
 
 #--------------------------------------------------------
 # Watch for changes and reload page
@@ -134,15 +146,13 @@ gulp.task "watch", ->
   server = $.livereload()
   $.livereload.listen()
 
-  gulp.watch paths.stylus, ["stylus"]
+  gulp.watch paths.stylus, ["stylus", "sourcemaps-external"]
   gulp.watch paths.jade, ["jade"]
-  #gulp.watch paths.sass, ["sass"]
-  #gulp.watch paths.slim, ["slim"]
 
   gulp.watch [
     paths.html
     paths.css
-  ], ["reload", "browser-sync-reload", "build"]
+  ], ["reload", "browser-sync-reload", "build", "sourcemaps-external"]
 
   return
 
@@ -162,6 +172,11 @@ gulp.task "build", ->
     "addMediaQueries"
   ]
 
+gulp.task "dist", ->
+  runSequence [
+    "build"
+    "html2hbs"
+  ]
 
 # --------------------------------------------------------
 # SEND EMAIL (configure in ./mailer.coffee)

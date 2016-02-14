@@ -13,6 +13,21 @@
             <table class="container app">
               <tr>
                 <td>
+                  <!-- *|IFNOT:ARCHIVE_PAGE|*-->
+                  <table class="row">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="expander"></td>
+                            <td colspan="12" mc:edit="preheader_links" class="center">Неудобно читать письмо?<a href="*|ARCHIVE|*" target="_blank"> Откройте его в браузере</a></td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- *|END:IF|*-->
                   <table class="row app-header">
                     <tr>
                       <td class="wrapper last">
@@ -20,7 +35,7 @@
                           <tr>
                             <td class="expander"></td>
                             <td colspan="12" class="center"><a href="http://ankor-center.ru">
-                                <center><img src="http://ankor-center.ru/email/logo-email.png" alt="Образовательный центр Анкор" width="124px" height="39px" class="app-header-logo center"/></center></a></td>
+                                <center><img mc:edit="app_header_logo" src="http://ankor-center.ru/email/logo-email.png" alt="Образовательный центр Анкор" width="124px" height="39px" class="app-header-logo center"/></center></a></td>
                             <td class="expander"></td>
                           </tr>
                         </table>
@@ -30,9 +45,8 @@
                   <table class="app-content-block">
                     <tr>
                       <td>
-                        <h1>= title</h1>
-                        <p class="app-content"><img src="" width="580" height="421" alt="= image"/></p>
-                        <p class="app-content">= content</p>
+                        <h1 mc:edit="app_content_title">= title</h1>
+                        <p mc:edit="app_content_text" class="app-content">= content</p>
                       </td>
                     </tr>
                   </table>
@@ -46,7 +60,7 @@
                             <td class="expander"></td>
                           </tr>
                         </table>
-                        <div class="socials-list"><span class="socials-list-item">Follow Ankor: </span><a href="http://vk.com/ankorcenter" class="socials-list-item">Вконтакте</a><a href="https://www.facebook.com/ankorcenter" class="socials-list-item">Facebook</a><a href="http://instagram.com/ankorcenter" class="socials-list-item">Instagram</a><a href="https://twitter.com/ankorcenter" class="socials-list-item">Twitter</a><a href="https://www.youtube.com/user/ankorcenter" class="socials-list-item">Youtube</a><a href="https://plus.google.com/100103884461236050501" class="socials-list-item">Google+</a>
+                        <div class="socials-list"><span class="socials-list-item">Follow Ankor:</span><a href="http://vk.com/ankorcenter" class="socials-list-item">Вконтакте</a><a href="https://www.facebook.com/ankorcenter" class="socials-list-item">Facebook</a><a href="http://instagram.com/ankorcenter" class="socials-list-item">Instagram</a><a href="https://twitter.com/ankorcenter" class="socials-list-item">Twitter</a><a href="https://www.youtube.com/user/ankorcenter" class="socials-list-item">Youtube</a><a href="https://plus.google.com/100103884461236050501" class="socials-list-item">Google+</a>
                         </div>
                         <table class="row app-footer-content">
                           <tr>
@@ -69,7 +83,9 @@
                             </td>
                           </tr>
                         </table>
-                        <p>Напишите нам </p><a href="school@ankor-center.ru">school@ankor-center.ru</a>
+                        <p>Напишите нам </p><a href="school@ankor-center.ru">school@ankor-center.ru</a><br/><br/>
+                        <hr/><br/>
+                        <center><a href="*|UNSUB|*">Отписаться от этой рассылки</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="*|UPDATE_PROFILE|*">Изменить настройки подписки</a></center>
                       </td>
                     </tr>
                   </table>

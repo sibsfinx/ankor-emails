@@ -1,3 +1,17 @@
+// *|IFNOT:ARCHIVE_PAGE|*
+
+table.row
+  tr
+    td.wrapper.last
+      table.twelve.columns
+        tr
+          td.expander
+          td.center(colspan='12'  mc:edit='preheader_links')
+            | Неудобно читать письмо?
+            a(href='*|ARCHIVE|*' target='_blank')  Откройте его в браузере
+          td.expander
+// *|END:IF|*
+
 table.row.app-header
   tr
     td.wrapper.last
@@ -7,6 +21,6 @@ table.row.app-header
           td.center(colspan='12')
             a(href="#{siteUrl}")
               center
-                img.app-header-logo.center(src="#{assetsPath}/logo-email.png" alt="Образовательный центр Анкор" width=headerLogoWidth height=headerLogoHeight)
+                img.app-header-logo.center(mc:edit='app_header_logo' src="#{assetsPath}/logo-email.png" alt="Образовательный центр Анкор" width=headerLogoWidth height=headerLogoHeight)
 
           td.expander

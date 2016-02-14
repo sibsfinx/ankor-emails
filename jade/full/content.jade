@@ -1,10 +1,8 @@
 table.app-content-block
   tr
     td
-      h1
+      h1(mc:edit='app_content_title')
         | = title
-      p.app-content
-        img(src="" width="580" height="421" alt="= image")
-      p.app-content
+      p.app-content(mc:edit='app_content_text')
         | = content
 

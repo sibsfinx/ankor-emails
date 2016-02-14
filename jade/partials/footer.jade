@@ -15,12 +15,18 @@ table.row.app-footer
         - socials = {'Вконтакте': 'http://vk.com/ankorcenter', 'Facebook': 'https://www.facebook.com/ankorcenter', 'Instagram': 'http://instagram.com/ankorcenter', 'Twitter': 'https://twitter.com/ankorcenter', 'Youtube': 'https://www.youtube.com/user/ankorcenter', 'Google+': 'https://plus.google.com/100103884461236050501'}
       .socials-list
         span.socials-list-item
-          | Follow Ankor: 
+          | Follow Ankor:
         each key, value in socials
           a.socials-list-item(href="#{key}")= value
 
-
-
-       include ../partials/footer_contacts
+      include ../partials/footer_contacts
+      br
+      br
+      hr
+      br
+      center
+        a(href='*|UNSUB|*') Отписаться от этой рассылки
+        | &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        a(href='*|UPDATE_PROFILE|*') Изменить настройки подписки
 
 
